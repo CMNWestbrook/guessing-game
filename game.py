@@ -27,4 +27,4 @@ while (guess != ran_num):
         guess = int(raw_input("What number do you guess? "))
         i = i + 1
 
-print "You got it in " + i + " attemps"
+print "You got it in " + str(i) + " attemps"
