@@ -11,3 +11,8 @@ print ran_num
 
 print "Hi, " + player + ". I am thinking of a number between 1 and 100."
 print "Try to guess my number."
+
+guess = raw_input("What number do you guess?")
+
+if guess > ran_num:
+    print "Your number is too big!"
