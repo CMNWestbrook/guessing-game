@@ -12,11 +12,14 @@ print ran_num
 print "Hi, %s. I am thinking of a number between 1 and 100." % player
 print "Try to guess my number. "
 
-
-guess = int(raw_input("What number do you guess? "))
+while True: 
+    try:
+        guess = int(raw_input("What number do you guess? "))
+        break
+    except ValueError:
+        print "You did not enter an integer"
 
 tries = 1
-
 
 
 while guess != ran_num:
