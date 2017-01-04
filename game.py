@@ -1,38 +1,54 @@
 # Put your code here
 import random
 
-print "Hi Friend!"
+best_tries = 0
+best_user = ""
 
-player = raw_input("What is your name? ")
 
-ran_num = random.randint(1, 100)
+def guess_game():
+    print "Hi Friend!"
+    player = raw_input("What is your name? ")
+    ran_num = random.randint(1, 100)
+    print ran_num
+    print "Hi, %s. I am thinking of a number between 1 and 100." % player
+    print "Try to guess my number. "
 
-print ran_num
+    while True:
+        try:
+            guess = int(raw_input("What number do you guess? "))
+            break
+        except ValueError:
+            print "You did not enter an integer"
 
-print "Hi, %s. I am thinking of a number between 1 and 100." % player
-print "Try to guess my number. "
+    tries = 1
 
-while True: 
-    try:
+
+    while guess != ran_num:
+        if guess < 2 or guess > 99:
+            side = "out of range"
+        elif guess > ran_num:
+            side = "big"
+        elif guess < ran_num:
+            side = "small"
+
+        print "Your number is too %s!" % side
         guess = int(raw_input("What number do you guess? "))
-        break
-    except ValueError:
-        print "You did not enter an integer"
+        tries = tries + 1
 
-tries = 1
+    print "You got it in %d attemps" % tries
 
 
-while guess != ran_num:
-    if guess < 2 or guess > 99:
-        side = "out of range"
-    elif guess > ran_num:
-        side = "big"
-    elif guess < ran_num:
-        side = "small"
 
-    print "Your number is too %s!" % side
-    guess = int(raw_input("What number do you guess? "))
-    tries = tries + 1
 
-print "You got it in %d attemps" % tries
+    print "Would you like to play again?"
+    answer = raw_input("(Yes/No)")
+    if answer == "Yes":
+        guess_game()
+    else:
+        print "Byu Byu"
 
+guess_game()
+
+
+
+#return guess_game()
