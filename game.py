@@ -14,10 +14,15 @@ print "Try to guess my number. "
 
 
 guess = int(raw_input("What number do you guess? "))
+
 tries = 1
 
+
+
 while guess != ran_num:
-    if guess > ran_num:
+    if guess < 2 or guess > 99:
+        side = "out of range"
+    elif guess > ran_num:
         side = "big"
     elif guess < ran_num:
         side = "small"
